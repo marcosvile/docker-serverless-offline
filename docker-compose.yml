@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  serverless-offline:
+    build: ./docker/serverless
+    command: [ "offline", "start", "--host", "0.0.0.0", "--reloadHandler" ]
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+
+  serverless-offline-debug:
+    extends:
+      service: serverless-offline
+    entrypoint: [ "node", "--inspect=0.0.0.0:9229", "/usr/local/bin/serverless" ]
+    ports:
+      - "9229:9229"
+    environment:
+      SLS_DEBUG: '*'
+      NODE_ENV: development

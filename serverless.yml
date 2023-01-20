@@ -1,0 +1,18 @@
+service: samtest
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+
+functions:
+  hello:
+    handler: lambda-nodejs12.x/hello-world/app.lambdaHandler
+    timeout: 30
+    events:
+      - http:
+          path: /hello
+          method: get
