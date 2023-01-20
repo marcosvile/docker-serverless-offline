@@ -25,3 +25,5 @@ curl http://localhost:3000/dev/hello
 ```shell
 docker compose up -d serverless-offline-debug
 ```
+
+Press `F5` and call the functions.
