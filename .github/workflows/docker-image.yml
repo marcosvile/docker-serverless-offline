@@ -26,6 +26,6 @@ jobs:
       uses: docker/build-push-action@v3.0.0
       with:
         context: .
-        file: ./docker/serverless
+        file: ./docker/serverless/Dockerfile
         push: true
         tags: marcosvile/docker-debug-lambda:latest
